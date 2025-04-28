@@ -1,5 +1,3 @@
-# tictactoe_ai.py
-
 import math
 
 def print_board(board):
@@ -8,7 +6,7 @@ def print_board(board):
         print("-" * 5)
 
 def check_winner(board, player):
-    # Check rows, columns and diagonals
+
     for row in board:
         if all([cell == player for cell in row]):
             return True
@@ -71,7 +69,7 @@ def main():
     print_board(board)
 
     while True:
-        # Human move
+
         row = int(input("Enter your move row (0-2): "))
         col = int(input("Enter your move column (0-2): "))
         if board[row][col] != " ":
@@ -81,23 +79,22 @@ def main():
         print_board(board)
 
         if check_winner(board, "X"):
-            print("You win! 🎉")
+            print("You win!")
             break
         if is_board_full(board):
-            print("It's a tie! 🤝")
+            print("It's a tie!")
             break
 
-        # AI move
         ai_row, ai_col = best_move(board)
         board[ai_row][ai_col] = "O"
         print("AI has made its move:")
         print_board(board)
 
         if check_winner(board, "O"):
-            print("AI wins! 🤖🏆")
+            print("AI wins!")
             break
         if is_board_full(board):
-            print("It's a tie! 🤝")
+            print("It's a tie!")
             break
 
 if __name__ == "__main__":
